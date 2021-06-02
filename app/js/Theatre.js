@@ -1023,7 +1023,7 @@ class Theatre {
 	 *
 	 * @private
 	 */
-	_processSceneEvent(senderId,type, data) {
+	_processSceneEvent(senderId, type, data) {
 		if (Theatre.DEBUG) console.log("Processing scene event %s",type,data); 
 		let insert,actorId,params,emote,port,emotions,resName,app,insertEmote,render; 
 
@@ -2084,7 +2084,7 @@ class Theatre {
 			if (insert.dockContainer) {
 				if (Theatre.DEBUG) this._updateTheatreDebugInfo(insert); 
 				// PIXI.v5 automatically clears displayObjects that are re-rendered, so artifacts are not an issue in the 'false' parameter
-				this.pixiCTX.renderer.render(insert.dockContainer,null,false); 
+				this.pixiCTX.renderer.render(insert.dockContainer,{renderTexture:null,clear:false}); 
 			}
 			else {
 				console.log("INSERT HAS NO CONTAINER! _renderTheatre : HOT-EJECTING it! ",insert); 
@@ -5691,7 +5691,7 @@ class Theatre {
 	}
 
 	/**
-	 * Handle the Quote toggle click
+	 * Handle the Delay Emote toggle click
 	 *
 	 * @param ev (Event) : The Event that triggered this handler
 	 */
